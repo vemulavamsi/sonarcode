@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages{
+        //Maven Installation
         stage('mavenBuild') {
             steps{
                 script{
@@ -11,6 +12,7 @@ pipeline {
         }
      stage('Sonar') {
             steps{
+                //Sonar envirment setup
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar') {
                         sh 'mvn sonar:sonar'
