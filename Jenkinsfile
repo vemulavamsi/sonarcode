@@ -22,5 +22,21 @@ pipeline {
                 
             }
         }
+        stage('nexus'){
+            steps{
+                //nexus
+                script{
+                nexusArtifactUploader artifacts: 
+                [[artifactId: 'xyz', classifier: '', file: 'pom.xml', type: 'war']]
+                credentialsId: 'nexus-1',
+                groupId: 'mvn',
+                nexusUrl: '54.237.220.171:8081/',
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                repository: 'nexus',
+                version: '1.0-SNAPSHOT'
+                }
+        }
     }
+
 }
