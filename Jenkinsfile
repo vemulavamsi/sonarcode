@@ -27,7 +27,7 @@ pipeline {
                 //nexus
                 script{
                 nexusArtifactUploader artifacts: 
-                [[artifactId: 'xyz', classifier: '', file: 'pom.xml', type: 'war']]
+                [[artifactId: 'xyz', classifier: '', file: 'pom.xml', type: 'war']],
                 credentialsId: 'nexus-1',
                 groupId: 'mvn',
                 nexusUrl: '54.237.220.171:8081/',
